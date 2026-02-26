@@ -1,11 +1,10 @@
 import pygame
 import chess
 import os
-from board_display import *
+from board_display import draw_board, draw_pieces
 
-from Jeff1_0 import *
-from Jeff1_1 import *
-from Jeff1_3 import *
+from Jeff1_0 import Jeff1_0
+from Jeff1_1 import Jeff1_1
 
 # ---------- CONFIG ----------
 WIDTH = 640
