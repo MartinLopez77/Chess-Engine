@@ -65,6 +65,10 @@ while running:
 
             # calcular movimiento y ejecutarlo
             move_uci = engine.choose_move()
+
+            if not move_uci:
+                print("No hay movimientos legales disponibles.")
+                continue
             
             # Sincronizar
             if board.turn == chess.WHITE:
