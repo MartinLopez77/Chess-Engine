@@ -8,8 +8,8 @@ Toma un movimiento aleatorio entre los posibles
 class Jeff1_0:
 
     # Tablero interno
-    def __init__(self):
-        self.board = chess.Board()
+    def __init__(self, board: chess.Board | None = None):
+        self.board = board or chess.Board()
 
     # Realizar el movimiento del rival
     def update_with_opponent_move(self, move_uci):
@@ -23,5 +23,4 @@ class Jeff1_0:
         if not legal_moves:
             return None
         move = random.choice(legal_moves)
-        self.board.push(move)
         return move.uci()

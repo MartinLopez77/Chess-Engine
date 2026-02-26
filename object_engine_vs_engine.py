@@ -19,8 +19,8 @@ pygame.display.set_caption("Jeffrey vs Jeffrey Turn-Based")
 board = chess.Board()
 
 # Instancias de motores con tableros internos independientes
-engine_white = Jeff1_1()
-engine_black = Jeff1_0()
+engine_white = Jeff1_1(board)
+engine_black = Jeff1_0(board)
 
 last_move = None
 game_over = False
@@ -71,10 +71,10 @@ while running:
                 continue
             
             # Sincronizar
-            if board.turn == chess.WHITE:
-                engine_black.update_with_opponent_move(move_uci)
-            else:
-                engine_white.update_with_opponent_move(move_uci)
+            # if board.turn == chess.WHITE:
+            #     engine_black.update_with_opponent_move(move_uci)
+            # else:
+            #     engine_white.update_with_opponent_move(move_uci)
 
             # Realizar el movimiento
             board.push(chess.Move.from_uci(move_uci))

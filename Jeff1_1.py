@@ -1,5 +1,6 @@
 import random
-from utils import *
+import chess
+from utils import score_move
 
 """
 Toma un movimiento aleatorio entre aquellos que aporten mayor beneficio
@@ -8,8 +9,8 @@ Toma un movimiento aleatorio entre aquellos que aporten mayor beneficio
 class Jeff1_1:
 
     # Tablero interno
-    def __init__(self):
-        self.board = chess.Board()
+    def __init__(self, board: chess.Board | None = None):
+        self.board = board or chess.Board()
 
     # Realizar el movimiento del rival
     def update_with_opponent_move(self, move_uci):
@@ -29,6 +30,4 @@ class Jeff1_1:
         mejores_movimientos = [mov for mov, score in puntuaciones_movimiento
             if score == mejor_puntuacion]
         move = random.choice(mejores_movimientos)
-
-        self.board.push(move)
         return move.uci()
