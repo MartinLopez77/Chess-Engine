@@ -9,6 +9,7 @@ class Jeff1_0:
 
     # Tablero interno
     def __init__(self, board: chess.Board | None = None):
+        self.is_internal_board = board is None
         self.board = board or chess.Board()
 
     # Realizar el movimiento del rival
@@ -22,5 +23,9 @@ class Jeff1_0:
         legal_moves = list(self.board.legal_moves)
         if not legal_moves:
             return None
+
+        if self.is_internal_board:
+            self.board.push(random.choice(legal_moves))
+
         move = random.choice(legal_moves)
         return move.uci()

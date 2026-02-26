@@ -10,6 +10,7 @@ class Jeff1_1:
 
     # Tablero interno
     def __init__(self, board: chess.Board | None = None):
+        self.is_internal_board = board is None
         self.board = board or chess.Board()
 
     # Realizar el movimiento del rival
@@ -30,4 +31,8 @@ class Jeff1_1:
         mejores_movimientos = [mov for mov, score in puntuaciones_movimiento
             if score == mejor_puntuacion]
         move = random.choice(mejores_movimientos)
+
+        if self.is_internal_board:
+            self.board.push(move)
+
         return move.uci()
