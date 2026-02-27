@@ -5,6 +5,7 @@ from board_display import draw_board, draw_pieces
 
 from Jeff1_0 import Jeff1_0
 from Jeff1_1 import Jeff1_1
+from Jeff1_3 import Jeff1_3
 
 # ---------- CONFIG ----------
 WIDTH = 640
@@ -15,10 +16,10 @@ pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Jeffrey vs Jeffrey Turn-Based")
 
-# Tenemos un único tablero
+# Tenemos un único tablero, asignamos el color a cada motor
 board = chess.Board()
-engine_white = Jeff1_0(board)
-engine_black = Jeff1_1(board)
+engine_white = Jeff1_3(board, chess.WHITE)
+engine_black = Jeff1_1(board, chess.BLACK)
 
 last_move = None
 game_over = False

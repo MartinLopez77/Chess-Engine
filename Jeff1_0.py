@@ -7,7 +7,7 @@ Toma un movimiento aleatorio entre los posibles
 class Jeff1_0:
 
     # Tablero interno
-    def __init__(self, board):
+    def __init__(self, board, color = True):
         self.board = board 
 
     # Elige un movimiento 
