@@ -9,7 +9,7 @@ class Jeff1_1:
 
     def __init__(self, board, color):
         self.board = board
-        self.color = color  # color del motor (chess.WHITE o chess.BLACK)
+        self.color = color 
 
     def choose_move(self):
         legal_moves = list(self.board.legal_moves)

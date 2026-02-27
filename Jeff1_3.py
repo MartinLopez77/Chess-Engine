@@ -1,10 +1,13 @@
 import random
-from utils import *
+from utils import score_board
+
+"""
+Reliza un minimax de profundidad k y selecciona un movimiento entre los mejores posibles
+"""
 
 class Jeff1_3:
 
     def __init__(self, board, color, depth=3):
-        # Cada motor tiene su propio tablero independiente
         self.board = board
         self.depth = depth
         self.color = color
@@ -39,7 +42,7 @@ class Jeff1_3:
                 best = min(best, val)
             return best
 
-    def choose_move(self, verbose=True):
+    def choose_move(self, verbose=False):
 
         legal_moves = list(self.board.legal_moves)
         if not legal_moves:

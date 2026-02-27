@@ -6,6 +6,8 @@ from board_display import draw_board, draw_pieces
 from Jeff1_0 import Jeff1_0
 from Jeff1_1 import Jeff1_1
 from Jeff1_3 import Jeff1_3
+from Jeff1_5 import Jeff1_5
+from Jeff1_6 import Jeff1_6
 
 # ---------- CONFIG ----------
 WIDTH = 640
@@ -18,8 +20,8 @@ pygame.display.set_caption("Jeffrey vs Jeffrey Turn-Based")
 
 # Tenemos un único tablero, asignamos el color a cada motor
 board = chess.Board()
-engine_white = Jeff1_3(board, chess.WHITE)
-engine_black = Jeff1_1(board, chess.BLACK)
+engine_white = Jeff1_1(board, chess.WHITE)
+engine_black = Jeff1_3(board, chess.BLACK)
 
 last_move = None
 game_over = False
@@ -70,7 +72,8 @@ while running:
 
             # Realizar el movimiento
             board.push(chess.Move.from_uci(move_uci))
-            print(f"Movimiento calculado ({engine.__class__.__name__}): {move_uci}")
+            # Aquí se puede mostrar el movimiento en consola
+            #print(f"Movimiento calculado ({engine.__class__.__name__}): {move_uci}")
 
             # comprobar fin de partida
             if board.is_game_over():
